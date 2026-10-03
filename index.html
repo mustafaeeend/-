@@ -1,145 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hero Section - Pure HTML, CSS, JS</title>
-
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-    <!-- ربط ملف الـ CSS الخارجي -->
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فيلم تجريبي</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="margin:0;background:#030303;padding:24px;min-height:100vh;display:grid;place-items:center">
 
-    <!-- خلفية الفيديو -->
-    <video 
-        class="bg-video"
-src="video/intro.mp4"
-        autoplay 
-        loop 
-        muted 
-        playsinline
-    ></video>
+<div class="video-player"
+     data-video="video/fd.mp4"
+     data-poster="video/1.jpg"
+     data-label="مشغل فيديو"
+     data-title="الفيديو الحالي"
+     data-ar="video/2.srt"
+     data-subtitle-position="bottom"
+     data-subtitle-size="medium">
+</div>
 
-    <!-- طبقة التغبيش والسفلية -->
-    <div class="blur-overlay"></div>
-
-    <!-- المحتوى الرئيسي للموقع -->
-    <div class="main-container">
-        
-        <!-- --- شريط التنقل (NAVBAR) --- -->
-        <nav class="navbar">
-
- <!-- الأزرار الجانبية -->
-            <div class="nav-actions">
-             <button class="liquid-btn icon-btn fade-item" style="--delay: 400ms;">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                </button>
-
-                <button class="liquid-btn search-btn fade-item" style="--delay: 350ms;">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                    <span>Search</span>
-                </button>
-                
-             
-
-                <!-- زر القائمة للهاتف (Hamburger Menu) -->
-                <button id="menu-toggle" class="liquid-btn icon-btn menu-btn fade-item" style="--delay: 350ms;">
-                    <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-                    <svg class="close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                </button>
-            </div>
-
- <!-- الروابط الخاصة بالشاشات الكبيرة -->
-            <div class="nav-links">
-                <a href="#" class="fade-item" style="--delay: 100ms;">Movies</a>
-                <a href="#" class="fade-item" style="--delay: 150ms;">TV Series</a>
-                <a href="#" class="fade-item" style="--delay: 200ms;">Editor's Pick</a>
-                <a href="#" class="fade-item" style="--delay: 250ms;">Interviews</a>
-                <a href="#" class="fade-item" style="--delay: 300ms;">User Reviews</a>
-            </div>
-
-            <div class="nav-space"></div>
-
-           
-
-           
-        </nav>
-
-        <!-- --- القائمة المنسدلة للهاتف --- -->
-        <div id="mobile-menu" class="mobile-menu">
-            <a href="#">Movies</a>
-            <a href="#">TV Series</a>
-            <a href="#">Editor's Pick</a>
-            <a href="#">Interviews</a>
-            <a href="#">User Reviews</a>
-            <div class="mobile-divider">
-                <button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Search</button>
-            <button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Profile</button>
-            </div>
-        </div>
-
-        <!-- --- المحتوى الرئيسي (HERO CONTENT) --- -->
-        <main class="hero-main">
-            <div class="hero-wrapper">
-                
-                <!-- القسم الأيسر: النصوص والأزرار -->
-                <div class="hero-text-content">
-                    <h1 class="fade-item" style="--delay: 400ms;">Step Through. Work Smarter.</h1>
-                    <p class="fade-item" style="--delay: 500ms;">A voyage through forgotten realms, where past and future intertwine.</p>
-                    
-                    <div class="hero-buttons">
-                        <button class="btn-white fade-item" style="--delay: 600ms;">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                            <span>Watch Now</span>
-                        </button>
-                        <button class="liquid-btn btn-more fade-item" style="--delay: 700ms;">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-
-                <!-- القسم الأيمن: صندوق الاقتباس (Stratify Quote Box) -->
-                <div class="quote-container fade-item" style="--delay: 800ms;">
-                    <div class="quote-box">
-                        <div class="quote-header">
-                            <div class="quote-logo">S</div>
-                            <span>Stratify</span>
-                        </div>
-                        <p class="quote-text">
-                            "With Nexum we went from managing tedious operational work to having AI agents that handle everything."
-                        </p>
-                        <div class="quote-footer">
-                            <div class="quote-user">
-                                <img src="https://i.pravatar.cc/72?img=12" alt="Sara Klein">
-                                <div class="user-info">
-                                    <span class="user-name">Sara Klein</span>
-                                    <span class="user-title">Dir of Operations</span>
-                                </div>
-                            </div>
-                            <div class="quote-arrows">
-                                <button class="liquid-btn arrow-btn" aria-label="Previous">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-                                </button>
-                                <button class="liquid-btn arrow-btn" aria-label="Next">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </main>
-
-    </div>
-
-    <!-- ربط ملف الـ JavaScript الخارجي -->
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
-</html>    
+</html>
