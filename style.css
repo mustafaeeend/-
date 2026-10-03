@@ -1,0 +1,515 @@
+/* إعدادات الصفحة الأساسية */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* خلفية الفيديو */
+.bg-video {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* طبقة التشويش السفلية */
+.blur-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    mask-image: linear-gradient(to top, black 0%, transparent 45%);
+    -webkit-mask-image: linear-gradient(to top, black 0%, transparent 45%);
+    pointer-events: none;
+}
+
+/* الحاوية الرئيسية */
+.main-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* شريط التنقل Navbar */
+.navbar {
+    position: relative;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+}
+
+.nav-space {
+    width: 40px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d1d5db;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* تأثير الزجاج (Liquid Glass Effect) */
+.liquid-btn {
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: none;
+    color: #fff;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.liquid-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.search-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* القائمة المنسدلة للجوال */
+.mobile-menu {
+    position: absolute;
+    top: 72px;
+    left: 1rem;
+    right: 1rem;
+    z-index: 40;
+    background: rgba(17, 24, 39, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.4s ease-out;
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.mobile-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.mobile-menu a:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.mobile-divider {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mobile-divider button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-divider button:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* قسم الـ Hero الرئيسي */
+.hero-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 3rem 4rem 3rem;
+    pointer-events: none;
+}
+
+.hero-wrapper {
+    pointer-events: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+}
+
+.hero-text-content {
+    flex: 1;
+    max-width: 42rem;
+}
+
+.hero-text-content h1 {
+    font-size: 4.5rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+}
+
+.hero-text-content p {
+    font-size: 1.25rem;
+    color: #9ca3af;
+    margin: 0 0 2.5rem 0;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-white {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-white:hover {
+    background: #e5e7eb;
+}
+
+.btn-more {
+    border-radius: 9999px;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* صندوق الاقتباس (Stratify Box) */
+.quote-container {
+    width: auto;
+}
+
+.quote-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 380px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.quote-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.quote-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #000;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.quote-header span {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.quote-text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 1.25rem 0;
+}
+
+.quote-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+}
+
+.quote-user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.quote-user img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.user-title {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.quote-arrows {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.arrow-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* حركات الظهور التدريجي (Blur Fade Up Animation) */
+.fade-item {
+    animation: blurFadeUp 1s ease-out forwards;
+    opacity: 0;
+    animation-delay: var(--delay, 0ms);
+}
+
+@keyframes blurFadeUp {
+    0% {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+/* التصميم المتجاوب للشاشات الصغيرة (Responsive) */
+@media (max-width: 1024px) {
+    .nav-links {
+        display: none;
+    }
+    .menu-btn {
+        display: flex;
+    }
+    .hero-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .quote-container {
+        width: 100%;
+    }
+    .quote-box {
+        width: 100%;
+    }
+    .hero-text-content h1 {
+        font-size: 3rem;
+    }
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+    .hero-main {
+        padding: 0 1.5rem 2rem 1.5rem;
+    }
+    .mobile-divider {
+        display: flex;
+    }
+}
+
+@media (max-width: 640px) {
+    .search-btn, .icon-btn:not(.menu-btn) {
+        display: none;
+    }
+}
+
+.glass-navigation {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px; /* شكل بيضاوي زجاجي */
+    padding: 0 10px;
+}
+
+.glass-navigation ul {
+    display: flex;
+    flex-direction: row; /* تحويله لأفقي */
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.glass-navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.glass-navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.glass-navigation ul li a .icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.7);
+    transition: 0.5s;
+    z-index: 10;
+}
+
+/* القفز للأعلى عند التمرير بدلاً من اليمين */
+.glass-navigation ul li.active a .icon {
+    transform: translateY(-25px);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    backdrop-filter: blur(4px);
+}
+
+.glass-navigation ul li a .text {
+    position: absolute;
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: 500;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.glass-navigation ul li.active a .text {
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+/* المؤشر الزجاجي المنزلق */
+.indicator {
+    position: absolute;
+    bottom: 10px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+    z-index: 0;
+    left: 10px; /* ضبط نقطة البداية */
+}
+
+/* تحريك المؤشر أفقياً حسب القسم الفعال */
+.glass-navigation ul li:nth-child(1).active ~ .indicator { transform: translateX(0); }
+.glass-navigation ul li:nth-child(2).active ~ .indicator { transform: translateX(70px); }
+.glass-navigation ul li:nth-child(3).active ~ .indicator { transform: translateX(140px); }
